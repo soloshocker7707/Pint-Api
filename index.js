@@ -59,6 +59,10 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok', version: '1.0.0' });
 });
 
+app.get('/', (req, res) => {
+  res.send('<h1>Welcome to Pint API</h1><p>UAE Tax & E-Invoicing Compliance Engine is running.</p><p>Check /health for status.</p>');
+});
+
 app.use(authMiddleware);
 
 app.post('/v1/vat/calculate', (req, res) => {
