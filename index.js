@@ -9,10 +9,18 @@ app.use(express.json());
 
 const authMiddleware = (req, res, next) => {
   const apiKey = req.headers['x-api-key'];
-  const validKeys = (process.env.API_KEYS || '').split(',').map(k => k.trim());
+  const rawKeys = process.env.API_KEYS || '';
+  
+  // Log for Vercel debugging (Logs are private to you)
+  console.log(`Auth Attempt: Header exists: ${!!apiKey}, Keys Loaded: ${rawKeys.length > 0}`);
+
+  const validKeys = rawKeys.split(',').map(k => k.trim()).filter(k => k.length > 0);
 
   if (!apiKey || !validKeys.includes(apiKey)) {
-    return res.status(401).json({ error: 'Invalid API key' });
+    return res.status(401).json({ 
+      error: 'Invalid API key',
+      debug_hint: process.env.NODE_ENV === 'development' ? 'Check your .env' : undefined
+    });
   }
   next();
 };
