@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pint API | UAE Compliance Gateway</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glow-container">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+    </div>
+
+    <nav>
+        <div class="logo">PINT<span>API</span></div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#docs">Docs</a>
+            <a href="/api/health" class="health-badge">Status: Online</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1 class="reveal">UAE Tax Compliance <br><span>Automated at the Edge.</span></h1>
+            <p class="subtitle">A high-performance API gateway for VAT calculation, PINT AE (UBL 2.1) invoice generation, and TRN verification. Built for the future of UAE e-invoicing.</p>
+            <div class="cta-group">
+                <a href="#docs" class="btn btn-primary">Start Integrating</a>
+                <a href="https://github.com/soloshocker7707/Pint-Api" class="btn btn-secondary">View Repo</a>
+            </div>
+        </section>
+
+        <section class="api-demo">
+            <div class="code-window">
+                <div class="window-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="title">POST /v1/vat/calculate</span>
+                </div>
+                <div class="code-content">
+<pre><code><span class="keyword">curl</span> -X POST https://pint-api.vercel.app/api/v1/vat/calculate \
+-H <span class="string">"x-api-key: your_key"</span> \
+-d '{
+  <span class="property">"items"</span>: [{ <span class="property">"name"</span>: <span class="string">"Consulting"</span>, <span class="property">"amount"</span>: <span class="number">1000</span> }],
+  <span class="property">"emirate"</span>: <span class="string">"DXB"</span>
+}'</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="feature-card">
+                <div class="icon">📑</div>
+                <h3>PINT AE Compliant</h3>
+                <p>Native UBL 2.1 XML generation specifically tuned for the UAE PINT standard.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🔍</div>
+                <h3>TRN Verification</h3>
+                <p>Algorithmic Luhn checksum validation with built-in business identity lookup.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">⚡</div>
+                <h3>Edge Logic</h3>
+                <p>Distributed globally for sub-100ms response times on tax calculations.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Pint API Solutions. UAE FTA Standards Compliant.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
