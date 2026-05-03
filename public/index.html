@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pint API | Screenshot & PDF Utility</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glow-container">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+    </div>
+
+    <nav>
+        <div class="logo">PINT<span>API</span></div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#docs">Docs</a>
+            <a href="/api/health" class="health-badge">Status: Online</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1 class="reveal">Web Screenshots <br><span>Simplified at the Edge.</span></h1>
+            <p class="subtitle">High-performance API for capturing screenshots, generating PDFs, and creating Open Graph images from any URL. Powered by Puppeteer and Chromium.</p>
+            <div class="cta-group">
+                <a href="#docs" class="btn btn-primary">Start Integrating</a>
+                <a href="https://github.com/soloshocker7707/Pint-Api" class="btn btn-secondary">View Repo</a>
+            </div>
+        </section>
+
+        <section class="api-demo">
+            <div class="code-window">
+                <div class="window-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="title">POST /v1/screenshot/capture</span>
+                </div>
+                <div class="code-content">
+<pre><code><span class="keyword">curl</span> -X POST https://pint-api.vercel.app/api/v1/screenshot/capture \
+-H <span class="string">"x-api-key: your_key"</span> \
+-d '{
+  <span class="property">"url"</span>: <span class="string">"https://google.com"</span>,
+  <span class="property">"fullPage"</span>: <span class="number">true</span>
+}'</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="feature-card">
+                <div class="icon">📸</div>
+                <h3>High Fidelity</h3>
+                <p>Full rendering of JavaScript, CSS, and web fonts for perfect captures.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">📄</div>
+                <h3>PDF Generation</h3>
+                <p>Convert any web page to a printable PDF with customizable formats and margins.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🖼️</div>
+                <h3>OG Optimized</h3>
+                <p>Dedicated endpoint for social media preview images (1200x630).</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Pint API Solutions. Built with Puppeteer-core.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

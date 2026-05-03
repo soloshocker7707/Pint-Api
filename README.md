@@ -1,29 +1,55 @@
-## Zuplo API
+# Pint Screenshot API 📸
 
-This is a Zuplo API that was created with
-[`create-zuplo-api`](https://zuplo.com/docs).
+A high-performance API for web screenshots, PDF generation, and Open Graph images. Built with Puppeteer and Chromium, optimized for serverless environments.
 
-## Getting Started
+## 🚀 Features
 
-First, run the development server:
+- **Web Screenshots**: Capture any URL as PNG or JPEG.
+- **PDF Generation**: High-fidelity PDF conversion with customizable formats.
+- **Open Graph Images**: Specialized endpoint for social media preview images (1200x630).
+- **Headless Edge**: Scalable browser logic powered by `puppeteer-core` and `@sparticuz/chromium`.
+- **Security**: Built-in API Key and Zuplo secret verification.
+
+## 🛠 Tech Stack
+
+- **Runtime**: Node.js (ES Modules)
+- **Framework**: Vercel Serverless Functions
+- **Browser**: Puppeteer-core + Chromium
+- **Deployment**: Vercel
+
+## 🚦 API Endpoints
+
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| GET | `/health` | API Status & Version | No |
+| POST | `/v1/screenshot/capture` | Capture PNG/JPEG screenshot | Yes |
+| POST | `/v1/screenshot/pdf` | Generate PDF from URL | Yes |
+| POST | `/v1/screenshot/og` | Capture 1200x630 OG image | Yes |
+
+## 📦 Local Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+npm install
+# Ensure you have a local Chrome instance or set IS_LOCAL=true
+npm start
 ```
 
-Open [http://localhost:9000](http://localhost:9000) with your browser to see the
-result.
+## 🔒 Configuration
 
-You can start editing the API by modifying `config/routes.oas.json`. The dev
-server will automatically reload the API with your changes.
+Create a `.env` file in the root directory:
+```env
+API_KEYS=your-key-1,your-key-2
+SECRET_ZUPLO=your-internal-secret
+ZUPLO_SECRET=your-internal-secret
+DEBUG_PREVIEW=false
+NODE_ENV=development
+```
 
-## Learn More
+## 🎫 Tiered Access
 
-To learn more about Zuplo, you can visit the
-[Zuplo documentation](https://zuplo.com/docs).
+The API supports two access tiers via headers:
+- **Paid Tier**: Pass `x-zuplo-secret` matching `SECRET_ZUPLO`.
+- **Free Tier**: Pass `x-free-tier: true` (Limited to 100 calls/month via Zuplo).
 
-To connect with the community join [Discord](https://discord.zuplo.com).
+---
+Built with ❤️ for rapid web utility development.
