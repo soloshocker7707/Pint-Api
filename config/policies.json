@@ -1,6 +1,5 @@
-[
-  {
-    "name": "inject-zuplo-secret",
+{
+  "inject-zuplo-secret": {
     "policyType": "request-headers-v1",
     "handler": {
       "export": "RequestHeadersPolicy",
@@ -16,8 +15,7 @@
       }
     }
   },
-  {
-    "name": "rate-limit-free-tier",
+  "rate-limit-free-tier": {
     "policyType": "rate-limit-v1",
     "handler": {
       "export": "RateLimitPolicy",
@@ -31,4 +29,4 @@
       }
     }
   }
-]
+}
