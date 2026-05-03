@@ -1,19 +1,25 @@
 {
   "name": "pint-api",
   "version": "1.0.0",
-  "description": "An Express API",
+  "description": "A high-performance Screenshot and PDF generation API with Zuplo Gateway.",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "zuplo:dev": "zuplo dev",
+    "zuplo:test": "zuplo test",
+    "typecheck": "tsc --noEmit",
+    "docs": "zuplo docs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "dotenv": "^17.4.2",
     "express": "^4.19.2",
     "puppeteer-core": "^24.42.0",
-    "@sparticuz/chromium": "^123.0.1"
+    "@sparticuz/chromium": "^123.0.1",
+    "zuplo": "^6"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "typescript": "^5"
   }
 }
