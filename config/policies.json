@@ -4,7 +4,7 @@
       "name": "inject-zuplo-secret",
       "policyType": "request-headers-v1",
       "handler": {
-        "export": "RequestHeadersPolicy",
+        "export": "RequestHeadersOutboundPolicy",
         "module": "$import(@zuplo/runtime)",
         "options": {
           "headers": [
@@ -21,7 +21,7 @@
       "name": "rate-limit-free-tier",
       "policyType": "rate-limit-v1",
       "handler": {
-        "export": "RateLimitPolicy",
+        "export": "RateLimitInboundPolicy",
         "module": "$import(@zuplo/runtime)",
         "options": {
           "rateLimitBy": "header",
