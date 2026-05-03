@@ -18,8 +18,7 @@
             }
           },
           "policies": {
-            "inbound": ["rate-limit-free-tier"],
-            "outbound": ["inject-zuplo-secret"]
+            "inbound": ["rate-limit-free-tier", "inject-zuplo-secret"]
           }
         },
         "responses": {
@@ -39,8 +38,7 @@
             }
           },
           "policies": {
-            "inbound": ["rate-limit-free-tier"],
-            "outbound": ["inject-zuplo-secret"]
+            "inbound": ["rate-limit-free-tier", "inject-zuplo-secret"]
           }
         },
         "responses": {
@@ -60,8 +58,7 @@
             }
           },
           "policies": {
-            "inbound": ["rate-limit-free-tier"],
-            "outbound": ["inject-zuplo-secret"]
+            "inbound": ["rate-limit-free-tier", "inject-zuplo-secret"]
           }
         },
         "responses": {
