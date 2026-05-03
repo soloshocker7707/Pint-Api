@@ -3,25 +3,33 @@
     {
       "name": "inject-zuplo-secret",
       "policyType": "request-headers-v1",
-      "options": {
-        "headers": [
-          {
-            "name": "x-zuplo-secret",
-            "value": "${env.SECRET_ZUPLO}",
-            "operation": "set"
-          }
-        ]
+      "handler": {
+        "export": "RequestHeadersPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "headers": [
+            {
+              "name": "x-zuplo-secret",
+              "value": "${env.SECRET_ZUPLO}",
+              "operation": "set"
+            }
+          ]
+        }
       }
     },
     {
       "name": "rate-limit-free-tier",
       "policyType": "rate-limit-v1",
-      "options": {
-        "rateLimitBy": "header",
-        "headerName": "x-free-tier",
-        "requestsPerMinute": 5,
-        "limit": 100,
-        "window": "30d"
+      "handler": {
+        "export": "RateLimitInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "rateLimitBy": "header",
+          "headerName": "x-free-tier",
+          "requestsPerMinute": 5,
+          "limit": 100,
+          "window": "30d"
+        }
       }
     }
   ]
