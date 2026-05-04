@@ -6,21 +6,10 @@ export default async function (
   options: any,
   policyName: string
 ) {
-  const env = context.env || (globalThis as any).process?.env || {};
-  const keys = Object.keys(env);
+  // Use context.env - this is the standard way. 
+  // It will work once the variable is saved in the Zuplo Portal settings.
+  const secret = context.env?.SECRET_ZUPLO || "";
   
-  let secret = env.SECRET_ZUPLO || env.ZUPLO_SECRET || env.secret_zuplo || "";
-  
-  if (!secret) {
-    const foundKey = keys.find(k => k.toUpperCase().includes("SECRET") && k.toUpperCase().includes("ZUPLO"));
-    if (foundKey) {
-      secret = env[foundKey];
-    }
-  }
-
-  // Debug: if still missing, send the list of keys in the header so we can see them in the error
-  const headerValue = secret ? secret.trim() : `DEBUG_KEYS:${keys.join(",")}`;
-  
-  request.headers.set("x-zuplo-secret", headerValue);
+  request.headers.set("x-zuplo-secret", secret.trim());
   return request;
 }
