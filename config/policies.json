@@ -5,7 +5,10 @@
       "policyType": "custom-code-inbound",
       "handler": {
         "export": "default",
-        "module": "$import(./modules/inject-secret)"
+        "module": "$import(./modules/inject-secret)",
+        "options": {
+          "secret": "${env.SECRET_ZUPLO}"
+        }
       }
     },
     {
