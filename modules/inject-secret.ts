@@ -1,4 +1,4 @@
-import { ZuploContext, ZuploRequest } from "@zuplo/runtime";
+import { ZuploContext, ZuploRequest, environment } from "@zuplo/runtime";
 
 export default async function (
   request: ZuploRequest,
@@ -6,9 +6,8 @@ export default async function (
   options: any,
   policyName: string
 ) {
-  // Use context.env - this is the standard way. 
-  // It will work once the variable is saved in the Zuplo Portal settings.
-  const secret = context.env?.SECRET_ZUPLO || "";
+  // Use the official environment import for the 2025 runtime
+  const secret = (environment as any).SECRET_ZUPLO || "";
   
   request.headers.set("x-zuplo-secret", secret.trim());
   return request;
