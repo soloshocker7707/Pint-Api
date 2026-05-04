@@ -6,7 +6,10 @@ export default async function (
   options: any,
   policyName: string
 ) {
-  // Inject the secret passed from options (which Zuplo resolves from env)
-  request.headers.set("x-zuplo-secret", (options.secret || "").trim());
+  // Access the environment variable directly from context.env
+  // We use a robust lookup to handle any runtime variations
+  const secret = context.env?.SECRET_ZUPLO || (globalThis as any).process?.env?.SECRET_ZUPLO || "";
+  
+  request.headers.set("x-zuplo-secret", secret.trim());
   return request;
 }
