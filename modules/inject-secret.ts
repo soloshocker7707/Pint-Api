@@ -6,10 +6,20 @@ export default async function (
   options: any,
   policyName: string
 ) {
-  // Access the environment variable directly from context.env
-  // We use a robust lookup to handle any runtime variations
-  const secret = context.env?.SECRET_ZUPLO || (globalThis as any).process?.env?.SECRET_ZUPLO || "";
+  // Defensive lookup: try exactly what we expect, then look for common variations
+  const env = context.env || (globalThis as any).process?.env || {};
   
-  request.headers.set("x-zuplo-secret", secret.trim());
+  let secret = env.SECRET_ZUPLO || env.ZUPLO_SECRET || env.secret_zuplo || "";
+  
+  // If still not found, look for any key that looks like our secret
+  if (!secret) {
+    const keys = Object.keys(env);
+    const foundKey = keys.find(k => k.toUpperCase().includes("SECRET") && k.toUpperCase().includes("ZUPLO"));
+    if (foundKey) {
+      secret = env[foundKey];
+    }
+  }
+
+  request.headers.set("x-zuplo-secret", (secret || "").trim());
   return request;
 }
