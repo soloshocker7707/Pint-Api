@@ -7,6 +7,6 @@ export default async function (
   policyName: string
 ) {
   // Inject the secret from environment variables
-  request.headers.set("x-zuplo-secret", process.env.SECRET_ZUPLO || "");
+  request.headers.set("x-zuplo-secret", context.env.SECRET_ZUPLO || "");
   return request;
 }
