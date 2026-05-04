@@ -6,20 +6,21 @@ export default async function (
   options: any,
   policyName: string
 ) {
-  // Defensive lookup: try exactly what we expect, then look for common variations
   const env = context.env || (globalThis as any).process?.env || {};
+  const keys = Object.keys(env);
   
   let secret = env.SECRET_ZUPLO || env.ZUPLO_SECRET || env.secret_zuplo || "";
   
-  // If still not found, look for any key that looks like our secret
   if (!secret) {
-    const keys = Object.keys(env);
     const foundKey = keys.find(k => k.toUpperCase().includes("SECRET") && k.toUpperCase().includes("ZUPLO"));
     if (foundKey) {
       secret = env[foundKey];
     }
   }
 
-  request.headers.set("x-zuplo-secret", (secret || "").trim());
+  // Debug: if still missing, send the list of keys in the header so we can see them in the error
+  const headerValue = secret ? secret.trim() : `DEBUG_KEYS:${keys.join(",")}`;
+  
+  request.headers.set("x-zuplo-secret", headerValue);
   return request;
 }
