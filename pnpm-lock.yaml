@@ -8,7 +8,7 @@ importers:
 
   .:
     dependencies:
-      '@sparticuz/chromium':
+      '@sparticuz/chromium-min':
         specifier: 122.0.0
         version: 122.0.0
       dotenv:
@@ -494,8 +494,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@sparticuz/chromium@122.0.0':
-    resolution: {integrity: sha512-DvS/KHg6QKw8Umn+yv2i3kFwg0uP/mAGvPw6L0n3kLPWo37DMB6HD4/vNDIQM9Gm13x0AVaqoGjOtDwPHP0uNQ==}
+  '@sparticuz/chromium-min@122.0.0':
+    resolution: {integrity: sha512-0EcOK6JqCA4iAutAQbAQPkJXLMXxkJ/jVJgQc7xz3rPgecLOpu8zji286qYthe/ux7YxtVAVlRHJeg1n2EVWiw==}
     engines: {node: '>= 16'}
 
   '@swc/core-darwin-arm64@1.10.18':
@@ -1753,7 +1753,7 @@ snapshots:
       - react-native-b4a
       - supports-color
 
-  '@sparticuz/chromium@122.0.0':
+  '@sparticuz/chromium-min@122.0.0':
     dependencies:
       follow-redirects: 1.16.0
       tar-fs: 3.1.2
