@@ -2,19 +2,10 @@
   "policies": [
     {
       "name": "inject-zuplo-secret",
-      "policyType": "request-headers-v1",
+      "policyType": "custom-code-inbound",
       "handler": {
-        "export": "RequestHeadersInboundPolicy",
-        "module": "$import(@zuplo/runtime)",
-        "options": {
-          "headers": [
-            {
-              "name": "x-zuplo-secret",
-              "value": "${env.SECRET_ZUPLO}",
-              "operation": "set"
-            }
-          ]
-        }
+        "export": "default",
+        "module": "$import(./modules/inject-secret)"
       }
     },
     {
