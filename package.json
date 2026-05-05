@@ -12,17 +12,17 @@
     "docs": "zuplo docs"
   },
   "engines": {
-    "node": "20.x"
+    "node": "18.x"
   },
   "dependencies": {
     "dotenv": "^17.4.2",
     "express": "^4.19.2",
-    "puppeteer-core": "22.11.0",
-    "@sparticuz/chromium-min": "122.0.0",
+    "puppeteer-core": "21.6.0",
+    "@sparticuz/chromium": "119.0.2",
     "zuplo": "^6"
   },
   "devDependencies": {
-    "@types/node": "^22",
+    "@types/node": "^18",
     "typescript": "^5"
   }
 }
